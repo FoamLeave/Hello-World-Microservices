@@ -183,15 +183,31 @@ kubectl version --client
 
 You can either just download this project by clicking the green "<> Code" button, and then click on the "Download ZIP" button like the below image shows: 
 
-![](readMeImg/vmboxPackages.png)
+![](readMeImg/downloadUbuntuButton.png)
 
 Then, you will have the zip file named "Hello-World-Microservices-main.zip". Unzip this file and you will have the project downloaded. 
 
-Or if you are familar with git, you can run the following command inside a Ubuntu Terminal under your desired path:
+Or 
+
+if you have git installed, you can run the following cmd inside Ubuntu Terminal:
 
 ```bash
 git clone https://github.com/FoamLeave/Hello-World-Microservices.git
 ```
+If you don't have git installed and still want to use git, you can do the following:
+
+```bash
+sudo apt update
+sudo apt install git
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+Replace the "Your Name" and "your.email@example.com" to your git account name and email. If you don't have a git account, please go to https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home and make one following their steps.
+
+
+
+
 
 ### Run The Project
 
