@@ -10,6 +10,10 @@
 ## Introduction
 This project is a simple Hello World Microservices operated by Minikube with Node.js, and Express.js for the web service. Docker to containerize the 2 services. Minikube for hosting the services.
 
+The docker images used can be found here:
+Hello Service image: https://hub.docker.com/repository/docker/jjliu10/hello-service/general
+World Service image: https://hub.docker.com/repository/docker/jjliu10/world-service/general
+
 ## Installation and Setting up Environment
 
 ### Install Ubuntu OS
@@ -316,3 +320,6 @@ World Service:
 You will need to add "/world" on the URL and hit enter to see the hello service as the image below shows:
 ![](readMeImg/worldPathWeb.png)
 
+### License
+This project is licensed under the GNU General Public [LICENSE](LICENSE)
+ v3.0. See the LICENSE file for details.
