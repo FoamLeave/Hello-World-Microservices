@@ -48,7 +48,6 @@ Navigate to https://ubuntu.com/download/desktop, and click on the "Download 24.0
 After the Oracle VM Virtual Box is installed on your environment and the Ubuntu 24.04.1 LTS .iso file is downloaded, you can follow the following guide to install Ubuntu 24.04.1 LTS on Virtual Box: https://itslinuxguide.com/install-ubuntu-virtualbox/
 
 If you don't want to read that long guide, you can follow these steps:
-
 1. Open the Oracle VM Virtual Box you have installed, and click on the blue button (![](readMeImg/vmboxNewButton.png)) which has "New" text under it.
 2. On the pop-up wizard, navigate to your designated directory to initialize the virtual Ubuntu. It is recommended to have at least 25GB of disk space. Input the Name for the virtual Ubuntu, for example, it is called "Ubuntu24" here.
 ![](readMeImg/vmboxNewPop.png)
@@ -70,6 +69,13 @@ The following installation should be done inside the Ubuntu OS.
 You should be doing these installations from top to bottom to avoid conflicts. (i.e. You should not install express.js before installing Node.js)
 
 Installing nvm is optional, but it is a better way to manage Node.js versions, which is highly recommended. If you don't want to install nvm, you can jump to - [Install Node.js](#install-nodejs)
+
+Before installing, run the below command on the Ubuntu Terminal to install curl for downloading packages:
+
+```bash
+sudo apt install curl
+```
+Enter your password if prompted, and then hit the enter key on your keyboard.
 
 #### Install nvm
 
