@@ -216,6 +216,7 @@ Replace the "Your Name" and "your.email@example.com" to your git account name an
 ```bash
 minikube start
 ```
+sudo usermod -aG docker $USER && newgrp docker
 
 You should see something like
 
@@ -231,10 +232,10 @@ kubectl apply -f world-service.yaml
 3. Staying on the current Terminal Tab, run the below command to see if the services are up:
 
 ```bash
-kubectl get services
+kubectl get pods
 ```
 
-if they are not up, you will see:
+if they are not up, you will see 0/1 under ready like the "world-deployment-5f796d7ccb-rf489" here:
 
 if they are up, you will see:
 
@@ -245,15 +246,25 @@ chmod +x test.sh
 ./test.sh
 ```
 
+You might get errors like:
+
+and you should do to grant minikube access to docker:
+
+```bash
+sudo chmod 666 /var/run/docker.sock
+sudo usermod -aG docker ${USER}
+```
+
 and get this as expected output.
 
 You can also access the services by running the below command on the current terminal tab:
 
 ```bash
 minikube service hello-service
+```
+```bash
 minikube service world-service
 ```
-
 a window will pop up on your browser for each service.
 
 You will need to add "/hello" on the to see the hello service as the image below shown
@@ -298,6 +309,7 @@ https://hub.docker.com/repositories/jjliu10
 
 chmod +x test.sh
 
+sudo usermod -aG docker $USER && newgrp docker
 ```
 
 ```
