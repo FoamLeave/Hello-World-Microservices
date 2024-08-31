@@ -67,10 +67,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 3. After installed, close the terminal and open a new termal window. On the new Ubuntu terminal, copy and paste in the following cmd and hit Enter key on your keyboard.
 
 ```bash
-nvm -version
+nvm --version
 ```
-
 The nvm version should be showing up similar to the image below
+
+![](readMeImg/nvmVersion.png)
 
 #### Install Node.js
 
@@ -106,11 +107,16 @@ node -v # should print `v20.17.0`
 # verifies the right npm version is in the environment
 npm -v # should print `10.8.2`
 ```
+
+After running all the above command, you should be able to see similar output on the npm -v  and node -v command like the below image shows:
+
+![](readMeImg/npmNodeVer.png)
+
 #### Install docker
 
 By the official docs on https://docs.docker.com/engine/install/ubuntu/ ,
 
-You will need to run the below command on the Ubuntu Terminal:
+You will need to run the below command on the Ubuntu Terminal and then enter your password and hit Enter key if prompted:
 
 ```bash
 # this uninstall all conflicting packages
@@ -133,7 +139,8 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docke
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 ```
 
 2. Install the Docker packages.
