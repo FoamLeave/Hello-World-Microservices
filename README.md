@@ -6,6 +6,10 @@
 - [Run The Project](#run-the-project)
 - [License](#license)
 
+
+## Introduction
+This project is a simple Hello World Microservices operated by minikube with Node.js, Express.js for the web service. Docker to containerize the 2 services. Minikube for hosting the services.
+
 ## Installation and Setting up Environment
 
 ### Install Ubuntu OS
@@ -203,10 +207,7 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
 
-Replace the "Your Name" and "your.email@example.com" to your git account name and email. If you don't have a git account, please go to https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home and make one following their steps.
-
-
-
+Replace the "Your Name" and "your.email@example.com" to your git account name and email. If you don't have a git account, please go to https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home and make one following their instructions.
 
 
 ### Run The Project
@@ -216,11 +217,26 @@ Replace the "Your Name" and "your.email@example.com" to your git account name an
 ```bash
 minikube start
 ```
-sudo usermod -aG docker $USER && newgrp docker
 
-You should see something like
+You might see something like the following:
+![](readMeImg/minikubeStartErr.png)
+
+To resolve this, run the below command and input your system password if prompted on the currrent Ubuntu terminal tab:
+```bash
+sudo usermod -aG docker $USER && newgrp docker
+```
+
+After the above command executed, run on the current terminal tab again with:
+```bash
+minikube start
+```
+
+You should be able to see: 
+
+![](readMeImg/minikubeSuccess.png)
 
 2. Open a new Ubuntu Terminal Tab, cd into the this project directory and run the below command:
+![](readMeImg/cdProj.png)
 
 ```bash
 kubectl apply -f hello-deployment.yaml
@@ -229,6 +245,10 @@ kubectl apply -f world-deployment.yaml
 kubectl apply -f world-service.yaml
 ```
 
+You should see the similar output as below:
+
+![](readMeImg/applyYaml.png)
+
 3. Staying on the current Terminal Tab, run the below command to see if the services are up:
 
 ```bash
@@ -236,10 +256,12 @@ kubectl get pods
 ```
 
 if they are not up, you will see 0/1 under ready like the "world-deployment-5f796d7ccb-rf489" here:
+![](readMeImg/podsNotUp.png)
 
 if they are up, you will see:
+![](readMeImg/podsUp.png)
 
-4. If all the services are up, you can run the below command on the current terminal tab:
+4. If all the pods are up, you can run the below command on the current terminal tab:
 
 ```bash
 chmod +x test.sh
@@ -247,6 +269,7 @@ chmod +x test.sh
 ```
 
 You might get errors like:
+![](readMeImg/minikubeTestErr.png)
 
 and you should do to grant minikube access to docker:
 
@@ -254,8 +277,8 @@ and you should do to grant minikube access to docker:
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -aG docker ${USER}
 ```
-
-and get this as expected output.
+After above command, you can run ./test.sh again get this as expected output:
+![](readMeImg/testOutput.png)
 
 You can also access the services by running the below command on the current terminal tab:
 
@@ -265,51 +288,17 @@ minikube service hello-service
 ```bash
 minikube service world-service
 ```
-a window will pop up on your browser for each service.
+a window will pop up on your browser for each service like:
 
-You will need to add "/hello" on the to see the hello service as the image below shown
+Hello Service:
+![](readMeImg/helloDefaultWeb.png)
 
-You will need to add "/world" on the to see the hello service as the image below shown
+You will need to add "/hello" on the url and hit enter to see the hello service as the image below shown:
+![](readMeImg/helloPathWeb.png)
 
-docker build -t world-service -f Dockerfile.world .
-docker build -t hello-service -f Dockerfile.hello .
+World Service:
+![](readMeImg/worldDefaultWeb.png)
 
-docker run -d -p 3001:3001 world-service
-docker run -d -p 3002:3000 hello-service
+You will need to add "/world" on the url and hit enter to see the hello service as the image below shown:
+![](readMeImg/worldPathWeb.png)
 
-kubectl apply -f hello-deployment.yaml
-kubectl apply -f hello-service.yaml
-kubectl apply -f world-deployment.yaml
-kubectl apply -f world-service.yaml
-
-kubectl delete -f hello-deployment.yaml
-kubectl delete -f hello-service.yaml
-kubectl delete -f world-deployment.yaml
-kubectl delete -f world-service.yaml
-
-kubectl get deployments
-kubectl get pods
-kubectl get services
-
-docker tag world-service:latest jjliu10/world-service:latest
-docker push jjliu10/world-service:latest
-
-docker tag hello-service:latest jjliu10/hello-service:latest
-docker push jjliu10/hello-service:latest
-
-kubectl delete services --all
-kubectl delete deployments --all
-
-minikube ssh
-
-minikube service hello-service
-minikube service world-service
-
-https://hub.docker.com/repositories/jjliu10
-
-chmod +x test.sh
-
-sudo usermod -aG docker $USER && newgrp docker
-```
-
-```
