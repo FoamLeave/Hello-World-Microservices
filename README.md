@@ -14,6 +14,7 @@ The docker images used can be found here:
 
 Hello Service image:
  https://hub.docker.com/repository/docker/jjliu10/hello-service/general
+ 
 World Service image:
  https://hub.docker.com/repository/docker/jjliu10/world-service/general
 
