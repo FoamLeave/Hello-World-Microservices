@@ -3,14 +3,14 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installation and Setting up Environment](#installation-and-setting-up-environment)
-- [Run the project](#Run-the-project)
+- [Run The Project](#run-the-project)
 - [License](#license)
 
 ## Installation and Setting up Environment
 
 ### Install Ubuntu OS
 
-First of all, a Ubuntu OS is needed.
+First of all, a Ubuntu OS is needed. If you have Ubuntu OS 20.04 and above installed, you can just jump to [Install Necessary Softwares](#Install-Necessary-Softwares)
 
 You can either install Ubuntu following the steps on https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview
 
@@ -39,10 +39,11 @@ If you don't want to read that long guide, you can follow these steps:
 2. On the pop-up wizard,
 
 ### Install Necessary Softwares
+The following installation should be done inside the Ubuntu OS.
 
 You should be doing these installation from top to bottom to avoid conflicts. (i.e. You should not install express.js before installing Node.js)
 
-Installing nvm is optional, but it is a better way to manage Node.js versions, which is highly recommanded.
+Installing nvm is optional, but it is a better way to manage Node.js versions, which is highly recommanded. If you don't want to insall nvm, you can jump to - [Install Node.js](#install-nodejs)
 
 #### Install nvm
 
@@ -105,19 +106,6 @@ node -v # should print `v20.17.0`
 # verifies the right npm version is in the environment
 npm -v # should print `10.8.2`
 ```
-
-<!-- #### Install npm packages need for this project -->
-
-<!-- Since this project comes with a package.json file, you can just navigate to the project directory and use the below command:
-
-```bash
-# to make sure the current terminal using the ndoe and npm version
-nvm use --lts
-# install the necessary npm packages for this project
-npm install
-#
-``` -->
-
 #### Install docker
 
 By the official docs on https://docs.docker.com/engine/install/ubuntu/ ,
@@ -183,8 +171,21 @@ and then check if it is update to date and working with
 ```bash
 kubectl version --client
 ```
+#### Install this project
 
-### Run the project
+You can either just download this project by clicking the green "<> Code" button, and then click on the "Download ZIP" button like the below image shows: 
+
+![](readMeImg/vmboxPackages.png)
+
+Then, you will have the zip file named "Hello-World-Microservices-main.zip". Unzip this file and you will have the project downloaded. 
+
+Or if you are familar with git, you can run the following command inside a Ubuntu Terminal under your desired path:
+
+```bash
+git clone https://github.com/FoamLeave/Hello-World-Microservices.git
+```
+
+### Run The Project
 
 1. Open a Ubuntu Terminal, start Minikube with the following command:
 
